@@ -12,7 +12,7 @@ defmodule FlightReport.Users.CreateOrUpdateUser do
 
   defp save_user(%User{} = user) do
     UserAgent.save(user)
-    {:ok, "User Saved Successfully"}
+    {:ok, user.id}
   end
 
   defp save_user({:error, _reason}= error), do: error
