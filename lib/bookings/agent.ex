@@ -15,6 +15,23 @@ defmodule FlightReport.Bookings.Agent do
     Agent.get(__MODULE__, & &1)
   end
 
+  def list_by_date(date_from, date_to) do
+    filtered_fly_list = list_all()
+    |>Map.values()
+    |>Enum.filter(fn(x) -> filter_by_date(date_from, date_to, x.data_completa) end)
+    cond do
+      Enum.empty?(filtered_fly_list)  ->{:error, "Invalid dates"}
+      length(filtered_fly_list) > 0 -> {:ok, filtered_fly_list}
+    end
+  end
+
+
+
+  def filter_by_date(date_from, date_to, date) do
+   (Date.compare(date_from, date) == :lt ) && (Date.compare(date_to, date) == :gt)
+
+  end
+
   defp update_state(state, %Booking{id: id} = booking) do
     Map.put(state, id, booking)
   end
