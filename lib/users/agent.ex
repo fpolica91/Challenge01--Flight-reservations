@@ -20,6 +20,7 @@ defmodule FlightReport.Users.Agent do
     Agent.get(__MODULE__, &get_user_record(&1, id))
   end
 
+
   defp get_user_record(state, id) do
     case Map.get(state, id) do
      nil -> {:error, "Record not found!"}

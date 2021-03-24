@@ -17,3 +17,9 @@ defmodule FlightReport.Users.CreateOrUpdateUser do
 
   defp save_user({:error, _reason}= error), do: error
 end
+  #  FlightReport.create_or_update_bookings(%{
+  #   cidade_destino: "Rio",
+  #   cidade_origem: "SP",
+  #   data_completa: "2021, 06, 25, 5, 40",
+  #   user_id: "37821383-8633-4464-8ca4-eb8852de64be"
+  # })

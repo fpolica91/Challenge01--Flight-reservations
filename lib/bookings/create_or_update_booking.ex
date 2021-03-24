@@ -20,7 +20,7 @@ defmodule FlightReport.Bookings.CreateOrUpdateBooking do
 
     formatted_date = %{year: year, month: month, day: day, hour: hour, minute: minute}
     with {:ok, id_usuario} <- UserAgent.get(user_id),
-    {:ok, booking} <- Booking.build(formatted_date, cidade_origem, cidade_destino, id_usuario)
+    {:ok, booking} <- Booking.build(formatted_date, cidade_origem, cidade_destino, id_usuario.id)
     do
       BookingAgent.save(booking)
     else error -> error

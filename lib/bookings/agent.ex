@@ -11,6 +11,9 @@ defmodule FlightReport.Bookings.Agent do
     {:ok, booking.id}
   end
 
+  def list_all do
+    Agent.get(__MODULE__, & &1)
+  end
 
   defp update_state(state, %Booking{id: id} = booking) do
     Map.put(state, id, booking)
