@@ -2,7 +2,6 @@
 defmodule FlightReportTest.Users.CreateOrUpdateUserTest do
   use ExUnit.Case
   alias FlightReport.Users.CreateOrUpdateUser
-  alias FlightReport.Users.User
   alias FlightReport.Users.Agent, as: UserAgent
 
   describe "call/1" do
