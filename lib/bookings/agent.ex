@@ -27,7 +27,7 @@ defmodule FlightReport.Bookings.Agent do
 
 
 
-  def filter_by_date(date_from, date_to, date) do
+  defp filter_by_date(date_from, date_to, date) do
    (Date.compare(date_from, date) == :lt ) && (Date.compare(date_to, date) == :gt)
 
   end
